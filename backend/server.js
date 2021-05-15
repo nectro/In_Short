@@ -16,6 +16,7 @@ app.listen(port, ()=>{
 
 //---------->for the extraction of texts<----------
 
+//https://www.npmjs.com/package/context-url-extractor ---------->Extract url from html pages
 //https://www.npmjs.com/package/pdf-extraction ---------->Extract text from pdf
 //https://www.npmjs.com/package/node-goose-honk ---------->Extract text from html pages
 //https://www.npmjs.com/package/office-text-extractor ---------->Extract text from any word doc
