@@ -9,6 +9,14 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors());
 
+const router = require('express').Router();
+
+router.route('/').get((req, res)=>{
+    res.json('hii!')
+})
+
+app.use('/response', router)
+
 app.listen(port, ()=>{
     console.log(`server running on Port :- ${port}`);
 });
