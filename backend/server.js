@@ -20,7 +20,7 @@ router.route('/').post(upload.single('doc'),(req, res)=>{
     let dataBuffer = fs.readFileSync(req.file.path);
     pdf(dataBuffer).then(function (data) {
         console.log(data.text);
-        let Summarizer = new SummarizerManager(data.text,5); 
+        let Summarizer = new SummarizerManager(data.text,7);
         let reduction_percentage = Summarizer.getFrequencyReductionAsDec().dec_reduction;
         res.json({status:"uploaded",file:req.file,perc:reduction_percentage,summary:Summarizer})
     });

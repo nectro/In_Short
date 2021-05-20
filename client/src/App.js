@@ -31,7 +31,7 @@ function App() {
       axios.post('http://localhost:5000/upload', formdata)
         .then(res =>{
           console.log(res.data)
-          setSummary(res.data.summary.frequency_summary)
+          setSummary(res.data.summary.frequency_summary.replace(/\n/g, ''))
         })
     }
 
