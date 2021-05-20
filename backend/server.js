@@ -14,7 +14,7 @@ app.use(cors());
 const router = require('express').Router();
 
 router.route('/').post(upload.single('doc'),(req, res)=>{
-    res.json('file uploaded!')    
+    res.json({status:"uploaded",file:req.file})    
 })
 
 app.use('/upload', router)
