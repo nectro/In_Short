@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' })
 
 require('dotenv').config();
 
@@ -11,11 +13,11 @@ app.use(cors());
 
 const router = require('express').Router();
 
-router.route('/').get((req, res)=>{
-    res.json('hii!')
+router.route('/').post(upload.single('doc'),(req, res)=>{
+    res.json('file uploaded!')    
 })
 
-app.use('/response', router)
+app.use('/upload', router)
 
 app.listen(port, ()=>{
     console.log(`server running on Port :- ${port}`);
