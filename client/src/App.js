@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 function App() {
 
   const [file,setFile] = useState(null);
+  const [summary,setSummary] = useState(null);
   /*
   axios.get('http://localhost:5000/response/')
     .then(
@@ -30,6 +31,7 @@ function App() {
       axios.post('http://localhost:5000/upload', formdata)
         .then(res =>{
           console.log(res.data)
+          setSummary(res.data.summary.frequency_summary)
         })
     }
 
@@ -41,6 +43,16 @@ function App() {
         <input type="file" onChange={fileHandler}/>
         <input type="submit" value="submit"/>
       </form>
+      <center>
+        {
+          summary &&
+          <div className="summary">
+              <p>
+                {summary}
+              </p>
+          </div>
+        }
+      </center>
     </div>
   );
 }
