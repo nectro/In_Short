@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' })
+const pdf = require('pdf-extraction');
+const fs = require('fs');
 
 require('dotenv').config();
 
@@ -14,7 +16,24 @@ app.use(cors());
 const router = require('express').Router();
 
 router.route('/').post(upload.single('doc'),(req, res)=>{
-    res.json({status:"uploaded",file:req.file})    
+    let dataBuffer = fs.readFileSync(req.file.path);
+    pdf(dataBuffer).then(function (data) {
+        // number of pages
+        console.log(data.numpages);
+        // number of rendered pages
+        console.log(data.numrender);
+        // PDF info
+        console.log(data.info);
+        // PDF metadata
+        console.log(data.metadata);
+        // PDF.js version
+        // check https://mozilla.github.io/pdf.js/getting_started/
+        console.log(data.version);
+        // PDF text
+        console.log(data.text);
+        res.json({status:"uploaded",file:req.file,text:data.text})
+    });
+    
 })
 
 app.use('/upload', router)
