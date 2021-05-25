@@ -16,6 +16,7 @@
     "express": "^4.17.1",
     "multer": "^1.4.2",
     "node-summarizer": "^1.0.7",
-    "pdf-extraction": "^1.0.2"
+    "pdf-extraction": "^1.0.2",
+    "spell-checker-js": "^1.2.6"
   }
 }

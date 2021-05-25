@@ -5,6 +5,7 @@ const upload = multer({ dest: 'uploads/' })
 const pdf = require('pdf-extraction');
 const fs = require('fs');
 const SummarizerManager = require("node-summarizer").SummarizerManager;
+const spell = require('spell-checker-js');
 
 require('dotenv').config();
 
@@ -26,6 +27,21 @@ router.route('/').post(upload.single('doc'),(req, res)=>{
     });
 })
 
+router.route('/spellcheck').post(upload.single('doc'),(req, res)=>{
+    let dataBuffer = fs.readFileSync(req.file.path);
+    pdf(dataBuffer).then(function (data) {
+        console.log(data.text.replace(/\n/g, ''));
+        const avd = ["Samaresh","Samanta","CSE"];
+        avd.map(avd=>{
+            data.text = data.text.replace(avd,'');
+        })      
+        spell.load('en');
+        const check = spell.check(data.text.replace(/\n/g, '').replace(/[0-9]/g, ''));
+        console.log(check);
+        res.json({wrongspell:check,noOfIncrt:check.length});  
+    });
+})
+
 app.use('/upload', router)
 
 app.listen(port, ()=>{
@@ -41,6 +57,7 @@ app.listen(port, ()=>{
 //https://www.npmjs.com/package/office-text-extractor ---------->Extract text from any word doc
 
 
-//---------->for the summarizations of texts<----------
+//---------->for the summarizations of texts adn other functions<----------
 
 //https://www.npmjs.com/package/@trashhalo/node-summarizer ----------->for summarization (DONE)
+//https://www.npmjs.com/package/spell-checker-js --------------->spell checker
