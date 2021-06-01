@@ -1,0 +1,46 @@
+.majorContainer {
+  height: 50px;
+  background-color: #3daa2b;
+  border-radius: 6px;
+  padding-left: 20px;
+}
+.logoContainer {
+  width: fit-content;
+  float: left;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 25px;
+}
+.logoContainer p {
+  font-size: 26.5px;
+  color: white;
+  line-height: 50px;
+  margin-top: -3.5px;
+  cursor: pointer;
+  user-select: none;
+}
+.menuContainer {
+  float: left;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menuContainer ul li {
+  display: inline-block;
+  margin-top: -3.5px;
+  margin: 0px 15px;
+}
+.menuContainer ul li a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+  font-weight: 300;
+}
+.menuContainer ul li a:hover {
+  color: white;
+  text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.712);
+  transition-duration: 0.4s;
+}
