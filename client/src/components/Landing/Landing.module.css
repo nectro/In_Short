@@ -1,0 +1,77 @@
+.majorContainer {
+  height: calc(100vh - 57px);
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+}
+.infoContainer {
+  padding-left: 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.heading {
+  margin-top: -10px;
+}
+.heading h1 {
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 60px;
+  color: #3daa2b;
+}
+.description {
+  width: 90%;
+  margin-top: 20px;
+}
+.description p {
+  text-align: justify;
+  color: rgba(0, 0, 0, 0.6);
+}
+.buttonContainer {
+  width: 60%;
+  margin-top: 38px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.buttonContainer a {
+  height: 40px;
+  width: 170px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 40px;
+  border: 2px solid #3daa2b;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn1 {
+  color: #fff;
+  background-color: #3daa2b;
+}
+.btn1:hover {
+  color: #3daa2b;
+  background-color: #fff;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.btn2 {
+  color: #3daa2b;
+  background-color: #fff;
+}
+.btn2:hover {
+  color: #fff;
+  background-color: #3daa2b;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.photoContainer {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.photoContainer img {
+  width: 76%;
+}

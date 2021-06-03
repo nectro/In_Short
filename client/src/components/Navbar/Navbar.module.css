@@ -44,3 +44,30 @@
   text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.712);
   transition-duration: 0.4s;
 }
+.options {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .majorContainer {
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .menuContainer {
+    display: none;
+  }
+  .logoContainer {
+    float: none;
+    margin: 0px;
+  }
+  .options {
+    display: flex;
+    font-size: 24px;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    margin-top: -1.5px;
+  }
+}
